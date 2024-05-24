@@ -1,10 +1,18 @@
+////Add Guest Button
 const addGuestButton = document.querySelector(".invite");
+////Guest Input Label
 const guestInputLabel = document.querySelector(".add-guest label");
+////Add guest to list
 const guestInput = document.querySelector(".add-guest input");
+///Guest List
 const guestList = document.querySelector(".guest-list");
+////Make sure there are only 8 guests - counter
 const guestCount = document.querySelector(".attendance");
+////Alert for no more guests reached limit of 8
 const guestFull = document.querySelector(".alert");
+////Assign Dishes Button
 const assignButton = document.querySelector(".assign");
+////Assigned Items
 const assignedItems = document.querySelector(".assigned-items");
 
 addGuestButton.addEventListener("click", function () {
@@ -30,7 +38,7 @@ const updateGuestCount = function () {
 	const guests = document.querySelectorAll(".guest-list li");
 	guestCount.innerText = guests.length;
 
-	if (guests.length === 8) {
+	if (guests.length === 8) {  ///when reach 8 hide guest button
 		addGuestButton.classList.add("hide");
 		guestInput.classList.add("hide");
 		guestInputLabel.classList.add("hide");
@@ -38,7 +46,7 @@ const updateGuestCount = function () {
 	}
 };
 
-const assignItems = function () {
+const assignItems = function () {  ///items that can be chosen
 	const potluckItems = [
 		"cheese",
 		"crackers",
@@ -57,6 +65,7 @@ const assignItems = function () {
 	const allGuests = document.querySelectorAll(".guest-list li");
 	for (let guest of allGuests) {
 		let randomPotluckIndex = Math.floor(
+              ///randomly assign dishes
 			Math.random() * potluckItems.length
 		);
 		let randomPotluckItem = potluckItems[randomPotluckIndex];
